@@ -1,78 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link href="{{asset('asset/img/favicon.png')}}" rel="shortcut icon">
 
-  <title>Login Page 2 | Creative - Bootstrap 3 Responsive Admin Template</title>
-
+  <title>Creative - Bootstrap Admin Template</title>
   <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('asset/css/bootstrap.min.css')}}" rel="stylesheet">
   <!-- bootstrap theme -->
-  <link href="css/bootstrap-theme.css" rel="stylesheet">
+  <link href="{{asset('asset/css/bootstrap-theme.css')}}" rel="stylesheet">
   <!--external css-->
   <!-- font icon -->
-  <link href="css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="css/font-awesome.css" rel="stylesheet" />
+  <link href="{{asset('asset/css/elegant-icons-style.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/css/font_awesome.min.css')}}" rel="stylesheet">
+  <!-- full calendar css-->
+  <link href="{{asset('assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/fullcalendar/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
+  <!-- easy pie chart-->
+  <link href="{{asset('assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css')}}" rel="stylesheet" type="text/css" media="screen">
+  <!-- owl carousel -->
+  <link href="{{asset('asset/css/owl.carousel.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{asset('asset/css/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet">
   <!-- Custom styles -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet" />
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- =======================================================
-      Theme Name: NiceAdmin
-      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-      Author: BootstrapMade
-      Author URL: https://bootstrapmade.com
-    ======================================================= -->
+  <link href="{{asset('ass
+  et/css/fullcalendar.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/css/widgets.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/css/style-responsive.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/css/xcharts.min.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/css/jquery-ui-1.10.4.min.css')}}" rel="stylesheet">
+  <!-- =======================================================
+    Theme Name: NiceAdmin
+    Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
 </head>
 
-<body class="login-img3-body">
+<body>
+  <!-- container section start -->
+  <section id="container" class="">
 
-  <div class="container">
 
-    <form class="login-form" action="index.html">
-      <div class="login-wrap">
-        <p class="login-img"><i class="icon_lock_alt"></i></p>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" placeholder="Username" autofocus>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control" placeholder="Password">
-        </div>
-        <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-                <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
-            </label>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-        <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
+    <header class="header dark-bg">
+      <div class="toggle-nav">
+      <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                  @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
       </div>
-    </form>
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
-  </div>
+    </header>
+    <!--header end-->
 
-</body>
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+       
+      </div>
+    </aside>
+    <!--sidebar end-->
 
-</html>
+    <!--main content start-->
+  
+
+
+            @include('include.foot')
+
+            
