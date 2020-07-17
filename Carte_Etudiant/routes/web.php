@@ -33,3 +33,5 @@ Route::get('/email', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/cartes', 'CartesController@index')->name('carte');
+Route::get('/etudiants', 'EtudiantsController@index')->name('Etudiants.liste');
