@@ -31,5 +31,7 @@ Route::get('/email', function () {
 })->name('email');
 
 Auth::routes();
-
+Route::resource('/etudiants', 'EtudiantsController');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/cartes','CartesController@index')->name('carte');
+
