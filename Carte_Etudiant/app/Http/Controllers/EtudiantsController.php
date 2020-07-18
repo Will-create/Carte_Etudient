@@ -14,7 +14,10 @@ class EtudiantsController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         
+=======
+>>>>>>> 3cd9ed74e098d9e8336adc20c56cfd5375e38020
         $etudiants=Etudiant::all();
         return view('etudiants.liste',compact('etudiants'));
     }
@@ -26,8 +29,12 @@ class EtudiantsController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $etudiants=Etudiant::all();
         return view('etudiants.form',compact('etudiants'));
+=======
+        //
+>>>>>>> 3cd9ed74e098d9e8336adc20c56cfd5375e38020
     }
 
     /**
@@ -48,8 +55,13 @@ class EtudiantsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+<<<<<<< HEAD
     { 
         return 'detail';
+=======
+    {
+        //
+>>>>>>> 3cd9ed74e098d9e8336adc20c56cfd5375e38020
     }
 
     /**
