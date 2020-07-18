@@ -31,7 +31,12 @@ Route::get('/email', function () {
 })->name('email');
 
 Auth::routes();
-
+Route::resource('/etudiants', 'EtudiantsController');
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD:Carte_Etudiant/routes/web.php
+Route::get('/cartes','CartesController@index')->name('carte');
+
+=======
 Route::get('/cartes', 'CartesController@index')->name('carte');
 Route::get('/etudiants', 'EtudiantsController@index')->name('Etudiants.liste');
+>>>>>>> 3cd9ed74e098d9e8336adc20c56cfd5375e38020:Carte_Etudiant/routes/web.php

@@ -25,7 +25,11 @@ class CreateEtudiantsTable extends Migration
             $table->unsignedBigInteger('niveau_id')->index();
             $table->unsignedBigInteger('nationalite_id')->index();
             $table->unsignedBigInteger('tuteur_id')->index();
+<<<<<<< HEAD
+            $table->unsignedBigInteger('promotion_id')->index();
+=======
             $table->unsignedBigInteger('annee_id')->index();
+>>>>>>> 3cd9ed74e098d9e8336adc20c56cfd5375e38020
             $table->timestamps();
         });
     }
