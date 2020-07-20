@@ -118,14 +118,14 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="{{route('etudiant')}}" class="">
+            <a href="{{route('etudiants.index')}}" class="">
                           <i class="icon_document_alt"></i>
                           <span>Etudiants</span>
                          
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="{{route('carte')}}" class="">
+            <a href="{{route('cartes.index')}}" class="">
                           <i class="icon_desktop"></i>
                           <span>Cartes</span>
                          

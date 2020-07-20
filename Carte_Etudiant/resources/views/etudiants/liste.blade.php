@@ -14,7 +14,7 @@
         <th>FILIERE</th>
         <th>NIVEAU D'ETUDE</th>
         <th>N° MATRICULE</th>
-        <th>ANNEE ACCADEMIQUE</th>
+        <th>PROMOTION</th>
         <th>PHOTO</th>
         <th>DETAIL</th>
         <th>MODIFIER</th>

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Carte;
-use App\Etudiant;
+use App\Tuteur;
 
-class CartesController extends Controller
+class TuteursController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class CartesController extends Controller
      */
     public function index()
     {
-         $cartes=Carte::get();
-        return view('cartes.liste',compact('cartes','etudiants'));
+        $tuteurs=Tuteur::all();
+        return view('tuteurs.liste',compact('tuteurs'));
     }
 
     /**
@@ -26,8 +25,8 @@ class CartesController extends Controller
      */
     public function create()
     {
-        $cartes=Carte::all();
-        return view('cartes.form',compact('cartes'));
+        $tuteurs=Tuteur::all();
+        return view('tuteurs.form',compact('tuteurs'));
     }
 
     /**
@@ -36,25 +35,17 @@ class CartesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Tuteur $tuteur)
     {
         $data=request()->validate([
-            'annee'=> ['required','string'],
-          ]);
-    
-          $imagePath=request('photo')->store('uploads','public');
-          $carte=Carte::create([        
-              'annee'=>$data[ 'annee'],             
-              'etudiant_id'=>$data[ 'etudiant_id'], 
-              'photo'=>$imagePath,
-              'filiere_id'=>$data[ 'filiere_id'],
-              'niveau_id'=>$data[ 'niveau_id'],
-              'nationalité_id'=>$data[ 'nationalité_id'],
-              'tuteur_id'=>$data[ 'tuteur_id'],
-              'promotion_id'=>$data[ 'promotion_id'],         
+            'tuteur'=> ['required','string'],
+          ]);      
+          $tuteur=Tuteur::create([
+              'tuteur'=>$data[ 'tuteur'],
               ]);
-              return redirect()->route('carte.index');
+              return redirect()->route('tuteurs.index');
     }
+    
 
     /**
      * Display the specified resource.

@@ -14,14 +14,6 @@ Route::get('/accueil', function () {
     return view('accueil');
 })->name('accueil');
 
-Route::get('/liste', function () {
-    return view('/etudiants/liste');
-})->name('etudiant');
-
-Route::get('/cartes/carte', function () {
-    return view('/cartes/carte');
-})->name('carte');
-
 Route::get('/', function () {
     return view('authentification');
 })->name('authentification');
@@ -32,6 +24,11 @@ Route::get('/email', function () {
 
 Auth::routes();
 Route::resource('/etudiants', 'EtudiantsController');
+Route::resource('/cartes', 'CartesController');
+Route::resource('/filieres', 'FilieresController');
+Route::resource('/nationalites', 'NationalitesController');
+Route::resource('/niveaux', 'NiveauxController');
+Route::resource('/promotions', 'PromotionsController');
+Route::resource('/tuteurs', 'TuteursController');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/cartes','CartesController@index')->name('carte');
 

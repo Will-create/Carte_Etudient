@@ -20,7 +20,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('date_naiss');
             $table->string('matricule');
             $table->string('adresse');
-            $table->string('image');
+            $table->texte('image');
             $table->unsignedBigInteger('filiere_id')->index();
             $table->unsignedBigInteger('niveau_id')->index();
             $table->unsignedBigInteger('nationalite_id')->index();

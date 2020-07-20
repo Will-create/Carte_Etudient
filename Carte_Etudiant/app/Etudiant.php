@@ -26,4 +26,8 @@ public function tuteur(){
 public function promotion(){
     return $this->belongsTo('App\Promotion');
 }
+
+public function cartes(){
+    return $this->belongsToMany('App\Carte');
+    }
 }

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Carte;
-use App\Etudiant;
+use App\Promotion;
 
-class CartesController extends Controller
+class PromotionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class CartesController extends Controller
      */
     public function index()
     {
-         $cartes=Carte::get();
-        return view('cartes.liste',compact('cartes','etudiants'));
+        $promotions=Promotion::all();
+        return view('promotions.liste',compact('promotions'));
     }
 
     /**
@@ -26,8 +25,8 @@ class CartesController extends Controller
      */
     public function create()
     {
-        $cartes=Carte::all();
-        return view('cartes.form',compact('cartes'));
+        $promotions=Promotion::all();
+        return view('promotions.form',compact('promotions'));
     }
 
     /**
@@ -36,24 +35,15 @@ class CartesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Promotion $promotion)
     {
         $data=request()->validate([
-            'annee'=> ['required','string'],
-          ]);
-    
-          $imagePath=request('photo')->store('uploads','public');
-          $carte=Carte::create([        
-              'annee'=>$data[ 'annee'],             
-              'etudiant_id'=>$data[ 'etudiant_id'], 
-              'photo'=>$imagePath,
-              'filiere_id'=>$data[ 'filiere_id'],
-              'niveau_id'=>$data[ 'niveau_id'],
-              'nationalité_id'=>$data[ 'nationalité_id'],
-              'tuteur_id'=>$data[ 'tuteur_id'],
-              'promotion_id'=>$data[ 'promotion_id'],         
+            'promotion'=> ['required','string'],
+          ]);      
+          $promotion=Promotion::create([
+              'promotion'=>$data[ 'promotion'],
               ]);
-              return redirect()->route('carte.index');
+              return redirect()->route('promotions.index');
     }
 
     /**
