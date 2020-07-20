@@ -8,6 +8,6 @@ class Carte extends Model
 {
     protected $guarded=[];
     public function etudiant(){
-    return $this->hasOne('App\Etudiant');
+    return $this->belongsTo('App\Etudiant');
 }
 }

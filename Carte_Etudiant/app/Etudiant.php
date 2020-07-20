@@ -28,6 +28,6 @@ public function promotion(){
 }
 
 public function cartes(){
-    return $this->belongsToMany('App\Carte');
-    }
+    return $this->hasMany('App\Carte');
+}
 }
