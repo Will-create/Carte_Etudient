@@ -10,7 +10,7 @@
             <div class="card">
                 
                 <div class="card-body">
-                <form method= "post" action="/etudiants">
+                <form method= "post" action="/etudiants" enctype="multipart/form-data">
                 @csrf
                   
 

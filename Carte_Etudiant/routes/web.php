@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('authentification');
 })->name('authentification');
 
-Route::get('/email', function () {
-    return view('email');
-})->name('email');
 
 Auth::routes();
 Route::resource('/etudiants', 'EtudiantsController');
@@ -31,4 +28,7 @@ Route::resource('/niveaux', 'NiveauxController');
 Route::resource('/promotions', 'PromotionsController');
 Route::resource('/tuteurs', 'TuteursController');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/emails', 'EmailsController@create')->name('email');
+Route::post('/emails', 'EmailsController@store');
+Route::get('/pdf/{etudiant}', 'CartesController@pdf');
 

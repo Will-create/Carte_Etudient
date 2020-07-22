@@ -79,6 +79,6 @@
   
 
 
-            @include('include.foot')
+ 
 
             
