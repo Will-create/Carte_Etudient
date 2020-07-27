@@ -13,6 +13,11 @@ use App\Carte;
 
 class EtudiantsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+        
     /**
      * Display a listing of the resource.
      *
@@ -81,13 +86,16 @@ class EtudiantsController extends Controller
         'date_naiss'=> ['required','string'],
         'matricule'=> ['required','string'],
         'adresse'=> ['required','string'],
-        'filiere_id'=> ['required','integer'],
-        'niveau_id'=> ['required','integer'],
-        'nationalite_id'=> ['required','integer'],
-        'promotion_id'=> ['required','integer'],
-        'tuteur_id'=> ['required','integer'],
-      ]);
     
+        'photo'=> ['required','image'],
+        'filiere_id'=> ['required'],
+        'niveau_id'=> ['required'],
+        'nationalite_id'=> ['required'],
+        'tuteur_id'=> ['required'],
+        'promotion_id'=> ['required'],
+      ]);
+
+
       $imagePath=request('photo')->store('uploads','public');
       $etudiant=Etudiant::create([
           'nom'=>$data[ 'nom'],
@@ -102,7 +110,8 @@ class EtudiantsController extends Controller
           'tuteur_id'=>$data[ 'tuteur_id'],
           'promotion_id'=>$data[ 'promotion_id'],
           ]);      
-          return redirect()->route('etudiants.index');
+
+         return redirect()->route('etudiants.index');
     }
 
     /**

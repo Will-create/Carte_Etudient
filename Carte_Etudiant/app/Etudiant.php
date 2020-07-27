@@ -11,13 +11,17 @@ class Etudiant extends Model
     return $this->belongsTo('App\Filiere');
 }
 
+
+
 public function nationalite(){
 return $this->belongsTo('App\Nationalite');
 }
 
+
 public function niveau(){
     return $this->belongsTo('App\Niveau');
 }
+
 
 public function tuteur(){
     return $this->belongsTo('App\Tuteur');
@@ -30,4 +34,8 @@ public function promotion(){
 public function cartes(){
     return $this->hasMany('App\Carte');
 }
+
+
 }
+
+

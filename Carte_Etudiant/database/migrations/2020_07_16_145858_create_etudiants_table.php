@@ -18,7 +18,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('date_naiss');
-            $table->string('matricule');
+            $table->string('matricule')->unique();
             $table->string('adresse');
             $table->string('photo');
             $table->unsignedBigInteger('filiere_id')->index();

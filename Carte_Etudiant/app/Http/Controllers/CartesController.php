@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Carte;
 use App\Etudiant;
+use PDF;
 
 class CartesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+        
+    
     /**
      * Display a listing of the resource.
      *
@@ -40,6 +47,13 @@ class CartesController extends Controller
     {
         $data=request()->validate([
             'annee'=> ['required','string'],
+            'etudiant_id'=> ['required','string'],
+            'photo'=> ['required','image'],
+            'filiere_id'=> ['required','string'],
+            'niveau_id'=> ['required','string'],
+            'nationalite_id'=> ['required','string'],
+            'tuteur_id'=> ['required','string'],
+            'promotion_id'=> ['required','string'],
           ]);
     
           $imagePath=request('photo')->store('uploads','public');
@@ -49,7 +63,7 @@ class CartesController extends Controller
               'photo'=>$imagePath,
               'filiere_id'=>$data[ 'filiere_id'],
               'niveau_id'=>$data[ 'niveau_id'],
-              'nationalité_id'=>$data[ 'nationalité_id'],
+              'nationalite_id'=>$data[ 'nationalite_id'],
               'tuteur_id'=>$data[ 'tuteur_id'],
               'promotion_id'=>$data[ 'promotion_id'],         
               ]);
@@ -99,5 +113,11 @@ class CartesController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function pdf($id){
+        $etudiant=Carte::findOrFail($id);
+        $pdf=PDF::loadview('carte.index', compact('etudiant'));
+        $name='carte-' .$carte->id. ".pdf";
+        return $pdf->stream('name');
     }
 }
