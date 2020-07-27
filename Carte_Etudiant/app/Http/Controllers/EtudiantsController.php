@@ -81,9 +81,13 @@ class EtudiantsController extends Controller
         'date_naiss'=> ['required','string'],
         'matricule'=> ['required','string'],
         'adresse'=> ['required','string'],
-        'photo'=> ['required','image']
+        'filiere_id'=> ['required','integer'],
+        'niveau_id'=> ['required','integer'],
+        'nationalite_id'=> ['required','integer'],
+        'promotion_id'=> ['required','integer'],
+        'tuteur_id'=> ['required','integer'],
       ]);
-dd($data);
+    
       $imagePath=request('photo')->store('uploads','public');
       $etudiant=Etudiant::create([
           'nom'=>$data[ 'nom'],
@@ -94,11 +98,11 @@ dd($data);
           'photo'=>$imagePath,
           'filiere_id'=>$data[ 'filiere_id'],
           'niveau_id'=>$data[ 'niveau_id'],
-          'nationalité_id'=>$data[ 'nationalité_id'],
+          'nationalite_id'=>$data[ 'nationalite_id'],
           'tuteur_id'=>$data[ 'tuteur_id'],
           'promotion_id'=>$data[ 'promotion_id'],
           ]);      
-          return view('etudiants.liste',compact('etudiants'));
+          return redirect()->route('etudiants.index');
     }
 
     /**

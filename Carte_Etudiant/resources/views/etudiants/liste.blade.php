@@ -35,7 +35,7 @@
         <td><img src="{{asset('storage').'/'.$etudiant->photo}}" style="width:50px;height:50px;" class="bf5 border rounded-circle"></td>
         <td><a href="{{route('etudiants.show',['etudiant'=>$etudiant->id])}}">Détail</a></td>
         <td><a href="{{route('etudiants.edit',['etudiant'=>$etudiant->id])}}">Modifier</a></td>
-        <td><a href="{{route('etudiants.destroy',['etudiant'=>$etudiant->id])}}">Supprimer</a></td>
+        <td><a href="{{route('etudiants.destroy',$etudiant)}}">Supprimer</a></td>
         </tr>
         @endforeach
         </tbody>
